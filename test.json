@@ -1,0 +1,96 @@
+[
+    {
+        "compartmentId": 1,
+        "containersWithShipments": [
+        ],
+        "containersWithLuggage": [
+        ]
+    },
+    {
+        "compartmentId": 2,
+        "containersWithShipments": [
+        ],
+        "containersWithLuggage": [
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 38
+            },
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 38
+            },
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 38
+            },
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 38
+            },
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 38
+            },
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 38
+            }
+        ]
+    },
+    {
+        "compartmentId": 3,
+        "containersWithShipments": [
+            {
+                "containerType": "PMC",
+                "shipments": [
+                    8,
+                    10
+                ]
+            },
+            {
+                "containerType": "PAG",
+                "shipments": [
+                    11
+                ]
+            },
+            {
+                "containerType": "AKE",
+                "shipments": [
+                    14
+                ]
+            }
+        ]
+    },
+    {
+        "compartmentId": 4,
+        "containersWithShipments": [
+            {
+                "containerType": "PMC",
+                "shipments": [
+                    13
+                ]
+            },
+            {
+                "containerType": "PAG",
+                "shipments": [
+                    12
+                ]
+            },
+            {
+                "containerType": "AKE",
+                "shipments": [
+                    14
+                ]
+            }
+        ]
+    },
+    {
+        "compartmentId": 5,
+        "containersWithLuggage": [
+            {
+                "containerType": "AKE",
+                "nbOfLuggage": 25
+            }
+        ]
+    }
+]

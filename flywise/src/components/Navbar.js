@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import Logo from "../assets/flywise.png";
-const pages = ["Main Page", "About the Project", "COG Calculator"];
+const pages = [];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
@@ -53,17 +53,25 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            <Box
-              component="img"
-              sx={{
-                height: 100,
-                width: 250,
-                maxHeight: { xs: 200, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-              }}
-              alt="Heckermen Logo"
-              src={Logo}
-            />
+            <div className="flex">
+              <Box
+                component="img"
+                sx={{
+                  maxHeight: { xs: 200, md: 167 },
+                  maxWidth: { xs: 350, md: 250 },
+                }}
+                alt="Challenge Logo"
+                src={Logo}
+              />
+              <Box
+                sx={{
+                  p: 8,
+                  fontSize: 34,
+                }}
+              >
+                AF/KLM Cargo Challenge
+              </Box>
+            </div>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

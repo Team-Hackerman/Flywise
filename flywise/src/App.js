@@ -1,8 +1,9 @@
 import Navbar from "./components/Navbar";
-import Main from "./components/Main";
+import About from "./components/About";
 import Form from "./components/Form";
 import ModelViewer from "./components/Visualization/ModelViewer";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
+import { useState } from "react";
 
 const router = createBrowserRouter([
   {
@@ -12,12 +13,14 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [results, setResult] = useState();
   return (
     <div className="font-bold">
       <Navbar />
-      <Main />
-      <ModelViewer scale="10" />
-      <Form />
+
+      <Form result={results} setResult={setResult} />
+      {results && <ModelViewer scale="10" />}
+      {!results && <About />}
     </div>
   );
 }

@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import Logo from "../assets/flywise.png";
 const pages = [];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = [];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

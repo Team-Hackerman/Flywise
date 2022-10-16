@@ -17,24 +17,27 @@ const About = () => {
           <Box
             component="img"
             sx={{
-              maxHeight: { xs: 200, md: 167 },
+              maxHeight: { xs: 250, md: 180 },
               maxWidth: { xs: 350, md: 250 },
               align: "center",
+            }}
+            style={{
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "50%",
             }}
             alt="Challenge Logo"
             src={Logo}
           />
           <Box justifyContent="center" mb={2}>
             <Box sx={{ fontSize: "h4.fontSize", fontWeight: "regular" }}>
-              Lorem Ipsum
+              Sustainable Air Cargo Optimization
             </Box>
           </Box>
           <Box mt={2}>
             <Typography variant="body1" sx={{ mx: 4 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+            Aviation accounts for 2.5% of global CO2 emissions. Like other emissions resulting from fossil fuel combustion, aircraft engines produce gases, noise, and particulates, raising environmental concerns. These emissions are directly proportional to the weight of the aircraft. The weight of an object depends on the overall size of the aircraft, along with passengers and cargo.Although the weight of the passengers cannot be optimized without affecting the commercial charges, the load on the aircrafts can surely be reduced by optimizing and scheduling  the load in such a way  that  the weight is  distributed  in the aircraft i.e.  it has its center of gravity  closer to the Optimised CoG. 
             </Typography>
           </Box>
           <Box
@@ -45,7 +48,7 @@ const About = () => {
           >
             This app is built by: <br />
             <Link
-              href="#"
+              href="https://github.com/Anu26092002"
               color="inherit"
               target="_blank"
               rel="noopener"
@@ -55,7 +58,7 @@ const About = () => {
             </Link>
             ,{" "}
             <Link
-              href="#"
+              href="https://github.com/harsh3401"
               color="inherit"
               target="_blank"
               rel="noopener"
@@ -75,7 +78,7 @@ const About = () => {
             </Link>
             ,{" "}
             <Link
-              href="#"
+              href="https://github.com/samvedjoshi"
               color="inherit"
               target="_blank"
               rel="noopener"
@@ -85,7 +88,7 @@ const About = () => {
             </Link>
             ,{" "}
             <Link
-              href="#"
+              href="https://github.com/shadyskies"
               color="inherit"
               target="_blank"
               rel="noopener"
@@ -95,7 +98,7 @@ const About = () => {
             </Link>{" "}
             {" and "}
             <Link
-              href="#"
+              href="https://github.com/YashChaudhari241"
               color="inherit"
               target="_blank"
               rel="noopener"
@@ -106,7 +109,7 @@ const About = () => {
           </Box>
           <Box mt={3}>
             <Link
-              href="#"
+              href="https://github.com/Team-Hackerman/Flywise"
               color="inherit"
               target="_blank"
               rel="noopener"

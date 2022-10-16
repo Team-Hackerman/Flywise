@@ -104,8 +104,6 @@ export default function Form(props) {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main">
-        <CssBaseline />
-
         <Backdrop
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={loading}
@@ -132,18 +130,20 @@ export default function Form(props) {
           </div>
         )}
         {!props.result && (
+          <Box sx={{ textAlign: "center" }}>
           <Box
-            borderColor="grey.500"
             sx={{
-              marginTop: 8,
               display: "flex",
-              minWidth: 500,
               flexDirection: "column",
               alignItems: "center",
-              borderColor: "primary.main",
-              border: "5px solid",
               p: 10,
             }}
+            mt={6}
+            mb={4}
+            pt={3}
+            pb={3}
+            style={{ backgroundColor: "#e3f2fd", borderRadius: "20px" }}
+            className="flex-col"
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <AirplanemodeActiveIcon />
@@ -224,6 +224,7 @@ export default function Form(props) {
                   })
                 : null}
             </div>
+          </Box>
           </Box>
         )}
       </Container>

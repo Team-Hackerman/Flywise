@@ -16,10 +16,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const theme = createTheme();
 
-export default function Form() {
+export default function Form(props) {
   const [selected, setSelected] = useState();
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(false);
+
   const [back, setback] = useState(false);
   const handleChange = (event) => {
     setSelected(event.target.value);
@@ -113,7 +113,7 @@ export default function Form() {
         >
           <CircularProgress color="inherit" />
         </Backdrop>
-        {result && (
+        {props.result && (
           <div>
             <div>Results are here</div>
             <div>
@@ -122,7 +122,7 @@ export default function Form() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={() => {
-                  setResult(false);
+                  props.setResult(false);
                 }}
                 startIcon={<ArrowBackIcon />}
               >
@@ -131,7 +131,7 @@ export default function Form() {
             </div>
           </div>
         )}
-        {!result && (
+        {!props.result && (
           <Box
             borderColor="grey.500"
             sx={{
@@ -162,26 +162,22 @@ export default function Form() {
                 id="email"
                 className="overflow-y"
                 onChange={handleChange}
+                MenuProps={{
+                  anchorOrigin: {
+                    vertical: "bottom",
+                    horizontal: "left",
+                  },
+                  transformOrigin: {
+                    vertical: "top",
+                    horizontal: "left",
+                  },
+                  getContentAnchorEl: null,
+                }}
               >
                 {cases.map((c, index) => {
                   return (
                     <MenuItem value={index}>
-                      <div className="flex-col">
-                        <div> Case {index + 1}</div>
-                        <div className="flex-col">
-                          {c.map((compartment, ind) => {
-                            return (
-                              <div className="flex-col">
-                                <div>Compartment {ind + 1}</div>{" "}
-                                <div>
-                                  PAG:{compartment.PAG} PMC:{compartment.PAG}
-                                  AKE:{compartment.AKE}
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>{" "}
+                      <div> Case {index + 1}</div>
                     </MenuItem>
                   );
                 })}
@@ -190,12 +186,20 @@ export default function Form() {
               <Button
                 onClick={() => {
                   //TODO put reqest here
-                  console.log(cases[selected]);
+
                   setLoading(true);
-                  axios.post("");
+                  axios
+                    .post("http://192.168.4.149:5000/result", {
+                      category_conf: selected,
+                    })
+                    .then((response) => {})
+                    .catch((error) => {
+                      alert("Server Error");
+                    });
+                  setSelected(null);
                   setTimeout(() => {
                     setLoading(false);
-                    setResult(true);
+                    props.setResult(true);
                   }, 2000);
                 }}
                 fullWidth
@@ -205,6 +209,21 @@ export default function Form() {
                 Compute COG and package locations
               </Button>
             </Box>
+            <div className="flex-col">
+              {selected != null
+                ? cases[selected].map((compartment, ind) => {
+                    return (
+                      <div className="flex-col">
+                        <div>Compartment {ind + 1}</div>{" "}
+                        <div>
+                          PAG:{compartment.PAG} PMC:{compartment.PAG}
+                          AKE:{compartment.AKE}
+                        </div>
+                      </div>
+                    );
+                  })
+                : null}
+            </div>
           </Box>
         )}
       </Container>

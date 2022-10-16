@@ -1,21 +1,14 @@
 import Navbar from "./components/Navbar";
-import Main from "./components/Main";
+import About from "./components/About";
 import Form from "./components/Form";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
-
+import { useState } from "react";
 function App() {
+  const [results, setResult] = useState();
   return (
     <div className="font-bold">
       <Navbar />
-      <Main/>
-      <Form></Form>
+      <Form result={results} setResult={setResult} />
+      {!results && <About />}
     </div>
   );
 }

@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <AppBar position="static" style={{ background: "#0d66b4" }}>
-      <Container maxWidth="xl">
+      <Container>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -56,8 +56,8 @@ const Navbar = () => {
             <Box
               component="img"
               sx={{
-                height: 150,
-                width: 350,
+                height: 100,
+                width: 250,
                 maxHeight: { xs: 200, md: 167 },
                 maxWidth: { xs: 350, md: 250 },
               }}
@@ -103,6 +103,25 @@ const Navbar = () => {
             </Menu>
           </Box>
 
+          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            Flywise
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button

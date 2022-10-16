@@ -103,7 +103,7 @@ export default function Form() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main">
         <CssBaseline />
 
         <Backdrop

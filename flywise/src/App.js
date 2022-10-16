@@ -13,6 +13,7 @@ const router = createBrowserRouter([
 
 function App() {
   const [results, setResult] = useState();
+
   return (
     <div className="font-bold">
       <Navbar />

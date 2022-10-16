@@ -157,7 +157,7 @@ def place_individual_shipments(i, available_ake, available_pmc, available_pag, a
                 if(len(shipments)<=0): break
                 if available_wt < shipments[0]["weight"]: break
                 
-                print(len(shipments))
+                # print(len(shipments))
 
                 if remaining_volume >= shipments[0]["volume"] :
                     if(len(shipments)<=0): break
@@ -192,7 +192,7 @@ def place_individual_shipments(i, available_ake, available_pmc, available_pag, a
             if(len(shipments)<=0): break
             if available_wt < shipments[0]["weight"]: break
             
-            print(len(shipments))
+            # print(len(shipments))
 
             if remaining_volume >= shipments[0]["volume"] :
                 if(len(shipments)<=0): break
@@ -245,22 +245,44 @@ def calculate_everything(compartment_conf):
         place_individual_shipments(i, available_ake, available_pmc, available_pag, available_wt, shipments, containers, result)
 
     final_op = get_final_placements(result)
-    compartment_volumes = compartment_weights = []
+    compartment_volumes = [] 
+    compartment_weights = []
+    compartment_num_shipments = []
+    compartment_num_luggage = []
+
+    print("----this new code------")
     for i in compartments:
-        print(i)
+        print(f"compartment: {i}")
 
     # get mass of occupied in each compartment
-    for conf in compartment_conf:
-        pag_volume = conf["PAG"]*containers[0]["volume"]
-        pmc_volume = conf["PMC"]*containers[1]["volume"]
-        ake_volume = conf["AKE"]*containers[2]["volume"]
-        pag_weight = conf["PAG"]*6033
-        pmc_weight = conf["PMC"]*6088
-        ake_weight = conf["AKE"]*1588
+    for i in range(len(compartment_conf)):
+        print(f'conf: {compartment_conf[i]}')
+        pag_volume = compartment_conf[i]["PAG"]*containers[0]["volume"]
+        pmc_volume = compartment_conf[i]["PMC"]*containers[1]["volume"]
+        ake_volume = compartment_conf[i]["AKE"]*containers[2]["volume"]
+        pag_weight = compartment_conf[i]["PAG"]*6033
+        pmc_weight = compartment_conf[i]["PMC"]*6088
+        ake_weight = compartment_conf[i]["AKE"]*1588
         compartment_volumes.append(pag_volume+pmc_volume+ake_volume)
         compartment_weights.append(pag_weight+pmc_weight+ake_weight)
     
+        # how many shipments in containers
+        # try:
+        #     count = 0
+        #     shipments = result[i]["containersWithShipments"]
+        #     for i in shipments:
+        #         count += i["shipments"]
+
+        #     compartment_num_shipments.append(count)
+            
+        # except Exception as e:
+        #     print(f"exception: {e}")
+        #     pass
+
+    print(compartment_weights)
+    print(compartment_volumes)
     print(result)
+    print(compartment_num_shipments)
 
     # get the base64 encoded pic
     url = "https://af-cargo-api-cargo.azuremicroservices.io/api/submit"
@@ -271,11 +293,12 @@ def calculate_everything(compartment_conf):
     response = requests.post("http://192.168.4.153:8081/api/graph", json=response_json)
 
     encoded = response.json()['graph.png']
-    print(encoded)
+    # print(encoded)
     
     return {
         "result": final_op,
         "image" : encoded,
         "compartment_volumes": compartment_volumes,
-        "compartment_weights": compartment_weights
+        "compartment_weights": compartment_weights,
+        # "compartment_num_shipments": compartment_num_shipments,
     }

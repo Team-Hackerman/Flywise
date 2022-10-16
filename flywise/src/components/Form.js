@@ -190,7 +190,7 @@ export default function Form(props) {
                   setLoading(true);
                   axios
                     .post("http://192.168.4.149:5000/result", {
-                      category_conf: cases[selected],
+                      compartment_conf: cases[selected],
                     })
                     .then((response) => {})
                     .catch((error) => {

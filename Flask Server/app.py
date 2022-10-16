@@ -18,11 +18,11 @@ def graph_data():
     graph=requests.post("http://localhost:8081/api/graph/",json=b64,timeout=(1, 5)).json()
     y=graph["coordinates - y"]
     x=graph["coordinates - x"]
-    i = base64.b64decode(graph["graph.png"])
-    i = io.BytesIO(i)
-    i = mpimg.imread(i, format='JPG')
+    i =graph["graph.png"]
+    # i = io.BytesIO(i)
+    # i = mpimg.imread(i, format='JPG')
 
     # plt.imshow(i, interpolation='nearest')
     # plt.show()
-    print(i)
-    return jsonify({"image":"test_image","coordinates":{"x":x,"y":y}})
+
+    return jsonify({"image":i,"coordinates":{"x":x,"y":y}})

@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 import Form from "./components/Form";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="font-bold">
       <Navbar />
+      <Main/>
       <Form></Form>
     </div>
   );

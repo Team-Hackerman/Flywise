@@ -56,8 +56,8 @@ const Navbar = () => {
             <Box
               component="img"
               sx={{
-                height: 150,
-                width: 350,
+                height: 100,
+                width: 250,
                 maxHeight: { xs: 200, md: 167 },
                 maxWidth: { xs: 350, md: 250 },
               }}
@@ -119,7 +119,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Flywise
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

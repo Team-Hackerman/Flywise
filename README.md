@@ -1,7 +1,7 @@
 <h1 align="center">Sustainable Cargo Challenge</h1>
 
 <p align="center">
-<a href="https://github.com/Team-Hackerman/Flywise"><img width=200px src=""  alt="Project logo"/></a></a>
+<a href="https://github.com/Team-Hackerman/Flywise"><img width=200px src="https://github.com/Team-Hackerman/Flywise/blob/main/flywise/src/assets/flywise.png"  alt="Project logo"/></a></a>
  
 </p>
 

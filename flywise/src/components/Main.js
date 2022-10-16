@@ -1,5 +1,4 @@
 import React from 'react';
-import bannerlogo from '../assets/heckermen.png';
 import { Box, Button, Container, Link, Typography } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 
